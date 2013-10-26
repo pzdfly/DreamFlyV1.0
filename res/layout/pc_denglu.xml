@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <!-- 顶部 -->
+
+    <RelativeLayout
+        android:id="@+id/layout_dengludingbu"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/pc_dingtiao" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/act_login"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- pc通知栏 -->
+
+    <FrameLayout
+        android:id="@+id/layout_pctongzhilan"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_dengludingbu" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/pc_msg"
+            android:contentDescription="@string/img_description" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/msg_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_notice"
+                android:layout_width="250dp"
+                android:layout_height="69dp"
+                android:layout_gravity="center" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 登陆 -->
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/layout_pctongzhilan"
+        android:padding="20dip"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="310dp"
+            android:background="@drawable/pc_denglubeijing"
+            android:gravity="center"
+            android:paddingLeft="30dip"
+            android:paddingRight="30dip" >
+
+            <TextView
+                android:id="@+id/tv_pcyonghudenglu"
+                android:layout_width="fill_parent"
+                android:layout_height="30dip"
+                android:layout_marginTop="20dip"
+                android:drawableBottom="@drawable/pc_dengluditiao"
+                android:gravity="center"
+                android:text="@string/user_login"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_pcyonghu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pcyonghudenglu"
+                android:layout_margin="4dip"
+                android:background="@drawable/yuanjiao"
+                android:drawableRight="@drawable/pc_yonghu"
+                android:focusableInTouchMode="true"
+                android:hint="@string/hint_user"
+                android:inputType="textVisiblePassword"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_pcmima"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_pcyonghu"
+                android:layout_margin="4dip"
+                android:background="@drawable/yuanjiao"
+                android:drawableRight="@drawable/pc_mima"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_pcmima"
+                android:layout_centerInParent="true" >
+
+                <Button
+                    android:id="@+id/btn_pcdenglu"
+                    android:layout_width="90dip"
+                    android:layout_height="40dip"
+                    android:background="@drawable/btn_login"
+                    android:text="@string/btn_login"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="0dip" />
+
+                <Button
+                    android:id="@+id/btn_pczhuce"
+                    android:layout_width="90dip"
+                    android:layout_height="40dip"
+                    android:background="@drawable/btn_regist"
+                    android:text="@string/btn_regist"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

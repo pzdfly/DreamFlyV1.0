@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dreamfly"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar">
+        <activity
+            android:name="com.example.dreamfly.WellcomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".NewsContent"></activity>
+        <activity android:name=".NewsPage"></activity>
+        <activity android:name=".AboutContent"></activity>
+        <activity
+            android:name="hmj.dfly.pc.DreamFly_pcActivity">
+        </activity>
+        <activity 
+            android:name="hmj.dfly.pc.DreamFly_pczhuce"></activity>
+        <activity android:name="hmj.dfly.user.baoxiu"
+            ></activity>
+        <activity android:name="hmj.dfly.pc.user_tab"
+        	></activity>
+        <activity android:name="hmj.dfly.user.pc_ziliao"
+            ></activity>
+        <activity android:name="hmj.dfly.user.pc_baoxiu"
+            ></activity>
+        <activity android:name="hmj.dfly.user.pc_baoxiudan"
+            ></activity>
+        <activity android:name="hmj.dfly.user.editInfo"
+            ></activity>
+		<activity android:name="hmj.dfly.user.cancelList"
+		    ></activity>
+		<activity android:name="hmj.dfly.user.comment"
+		    ></activity>
+		<activity android:name="hmj.dfly.pcer.webtList"
+		    ></activity>
+		<activity android:name="hmj.dfly.pcer.acceptList"
+		    ></activity>
+		<activity android:name="hmj.dfly.pcer.myList"
+		    ></activity>
+		<activity android:name="hmj.dfly.pcer.listinfo_pcer"
+		    ></activity>
+		<activity android:name="hmj.dfly.pcer.teleList"
+		    ></activity>
+		<activity android:name="hmj.dfly.pcer.giveupList"
+		    ></activity>
+		<activity android:name="hmj.dfly.pcer.finishList"
+		    ></activity>
+		<activity android:name="hmj.dfly.user.listinfo_user"
+		    ></activity>
+		
+		<meta-data android:value="526b2c7556240b8ed1088810" android:name="UMENG_APPKEY" />
+    	<meta-data android:value="PeiZhengDreamFly" android:name="UMENG_CHANNEL" /> 
+    </application>
+
+</manifest>
