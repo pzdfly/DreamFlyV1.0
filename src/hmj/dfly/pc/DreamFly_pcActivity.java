@@ -1,8 +1,5 @@
 package hmj.dfly.pc;
 
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +8,11 @@ import com.umeng.analytics.MobclickAgent;
 
 
 import pz.rg.domain.Login;
+import pz.rg.domain.Notice;
 
 import pz.rg.http.HttpTools;
 import pz.rg.json.tool.JsonTools;
+import pz.rg.notice.MC_Timer;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +24,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class DreamFly_pcActivity extends Activity {
@@ -70,7 +68,6 @@ public class DreamFly_pcActivity extends Activity {
 	private OnClickListener l_pczhuce=new OnClickListener() {
 		
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			Intent intent=new Intent();
 			intent.setClass(DreamFly_pcActivity.this,DreamFly_pczhuce.class);
 			DreamFly_pcActivity.this.startActivity(intent);		
@@ -152,35 +149,33 @@ public class DreamFly_pcActivity extends Activity {
 					Toast.makeText(DreamFly_pcActivity.this, result.get(0).getRealname()+",登陆成功，欢迎您回来", Toast.LENGTH_SHORT).show();
 					finish();
 				}
-				
-				//super.onPostExecute(result);
 			}
-			}
+		}
 			
 
 			
 	}
-	
-	public class getNotice extends AsyncTask<Void, Void, String>{
-		private String jsonString;
-		@Override
-		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
-			
-			String url=new String("http://www.peizheng.cn/mobile/index.php?interfaceid=0213&topnum=1&cname=dfly&cpwd=123456");
-			jsonString=HttpTools.getJsonString(url);
-			String noticeString=JsonTools.getNotice(jsonString).get(0).getNotice();
-			
-			return noticeString;
-		}
+
+	public class getNotice extends AsyncTask<Void, Void, List<Notice>>{
+		private String 	jsonString;
 		
 		@Override
-		protected void onPostExecute(String noticeString) {
-			TextView textView=(TextView)findViewById(R.id.tv_notice);
-			textView.setText("通知："+noticeString);
-			super.onPostExecute(noticeString);
+		protected List<Notice> doInBackground(Void... params) {
+			
+			String url				= new String("http://www.peizheng.cn/mobile/index.php?interfaceid=0213&topnum=3&cname=dfly&cpwd=123456");
+			jsonString				= HttpTools.getJsonString(url);
+			List<Notice> noticeList	= JsonTools.getNotice(jsonString);
+			
+			return noticeList;
 		}
-		
+
+		@Override
+		protected void onPostExecute(List<Notice> list) {
+			MC_Timer tTimer = new MC_Timer(4000, list, DreamFly_pcActivity.this);
+			tTimer.startTimer();
+			
+			super.onPostExecute(list);
+		}
 	}
 
 	@Override

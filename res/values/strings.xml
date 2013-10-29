@@ -23,6 +23,8 @@
     <string name="password">密码：</string>
     <string name="realname">真实姓名:</string>
     <string name="sex">性别：</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
     <string name="area">区域：</string>
     <string name="dorm">宿舍号：</string>
     <string name="email">E-mail：</string>
@@ -37,11 +39,14 @@
     <string name="hint_password">请输入密码</string>
     <string name="hint_realname">如：张三</string>
 	<string name="hint_sex">如：男</string>
+	<string name="hint_dorm_title">宿舍楼</string>
 	<string name="hint_area">如：北区</string>
-	<string name="hint_dorm">如：11&#8211;602</string>
+	<string name="hint_middle">栋  &#8211;</string>
+	<string name="hint_dorm">如：602</string>
 	<string name="hint_phone">如：13710261413</string>
 	<string name="hint_email">如：peizheng@pz.com</string>
 	<string name="hint_comtype">笔记本/台式/苹果</string>
+	<string name="comtype_title">电脑类型</string>
 	<string name="hint_faultdesc">如：开机进不了系统</string>
 	<string name="hint_booktime">如：明天晚上8点之后</string>
 	<string name="hint_cancellist">请说下为什么取消报修，有助于我们改进服务</string>
@@ -77,4 +82,47 @@
 	<string name="about_title">梦飞翔Android客户端</string>
 	<string name="version">Version1.0</string>
 	<string name="developers">开发人员：</string>
+	
+	<!-- String-array -->
+	<string-array name="building_number">
+	    <item >1</item>
+	    <item >2</item>
+	    <item >3</item>
+	    <item >4</item>
+	    <item >5</item>
+	    <item >6</item>
+	    <item >7</item>
+	    <item >8</item>
+	    <item >9</item>
+	    <item >10</item>
+	    <item >11</item>
+	    <item >12</item>
+	    <item >13</item>
+	    <item >14</item>
+	    <item >15</item>
+	    <item >16</item>
+	    <item >17</item>
+	    <item >18</item>
+	    <item >19</item>
+	    <item >A</item>
+	    <item >B</item>
+	    <item >C</item>
+	    <item >D</item>
+	    <item >E</item>
+	    <item >F</item>
+	    <item >G</item>
+	</string-array>
+	
+	<string-array name="area_name">
+	    <item>北区</item>
+	    <item>中区</item>
+	    <item>南区</item>
+	    <item>公寓</item>
+	</string-array>
+	
+	<string-array name="compure_kind">
+	    <item>笔记本</item>
+	    <item>台式</item>
+	    <item>苹果</item>
+	</string-array>
 </resources>

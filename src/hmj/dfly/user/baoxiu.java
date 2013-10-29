@@ -14,8 +14,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +30,7 @@ public class baoxiu extends Activity{
 	private TextView phone;
 	private TextView email;
 	
-	private EditText comtype;
+	private Spinner  comtype;
 	private EditText faultdesc;
 	private EditText booktime;
 	
@@ -36,10 +39,12 @@ public class baoxiu extends Activity{
 	private String comtypeString;
 	private String faultdescString;
 	private String booktimeString;
-	private String phoneString;
+	private String phoneString = "笔记本";
 	private String dormString;
 	private String emailString;
 	private String areaString;
+	
+	private ArrayAdapter<CharSequence> comtypeAdapter;
 	
 	private Button btn;
 	
@@ -59,19 +64,42 @@ public class baoxiu extends Activity{
         email=(TextView)findViewById(R.id.tv_baoxiu_email);
         phone=(TextView)findViewById(R.id.tv_baoxiu_phone);
         
-        comtype=(EditText)findViewById(R.id.et_baoxiu_comtype);
-        faultdesc=(EditText)findViewById(R.id.et_baoxiu_faultdesc);
-        booktime=(EditText)findViewById(R.id.et_baoxiu_booktime);
+        faultdesc	= (EditText)findViewById(R.id.et_baoxiu_faultdesc);
+        booktime	= (EditText)findViewById(R.id.et_baoxiu_booktime);
+       
+        comtype 		= (Spinner)findViewById(R.id.sp_baoxiu_comtype);
+        comtypeAdapter	= ArrayAdapter.createFromResource(baoxiu.this, R.array.compure_kind, R.layout.list_item);
+        comtypeAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        comtype.setAdapter(comtypeAdapter);
+        comtype.setSelection(0, true);
+  
+        comtype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				if(0 != arg2){
+					comtypeString = comtypeAdapter.getItem(arg2).toString();
+				}else {
+					Toast.makeText(baoxiu.this, "没有选择任何项", Toast.LENGTH_SHORT).show();
+				}
+				
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				Toast.makeText(baoxiu.this, "没有选择任何项", Toast.LENGTH_SHORT).show();
+			}
+		});
+        
           
-        uidString=user_info.getString("uid", "none");
-        unameString=user_info.getString("uname", "none");
-        comtypeString=user_info.getString("comtype", "none");
-        faultdescString=user_info.getString("faultdesc", "none");
-        booktimeString=user_info.getString("booktime", "none");
-        phoneString=user_info.getString("phone", "none");
-        dormString=user_info.getString("dorm", "none");
-        emailString=user_info.getString("email", "none");
-        areaString=user_info.getString("area", "none");
+        uidString		= user_info.getString("uid", "none");
+        unameString		= user_info.getString("uname", "none");
+        comtypeString	= user_info.getString("comtype", "none");
+        faultdescString	= user_info.getString("faultdesc", "none");
+        booktimeString	= user_info.getString("booktime", "none");
+        phoneString		= user_info.getString("phone", "none");
+        dormString		= user_info.getString("dorm", "none");
+        emailString		= user_info.getString("email", "none");
+        areaString		= user_info.getString("area", "none");
 
         uname.setText(unameString);
         area.setText(areaString);
@@ -82,7 +110,9 @@ public class baoxiu extends Activity{
         btn=(Button)findViewById(R.id.btn_tijiaobaoxiu);
         btn.setOnClickListener(new OnClickListener() {	
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				faultdescString=faultdesc.getText().toString();
+				booktimeString=booktime.getText().toString();
+				
 				toBaoxiu tobaoxiu =new toBaoxiu();
 				tobaoxiu.execute();	
 			}
@@ -95,21 +125,15 @@ public class baoxiu extends Activity{
 		}
 
 		@Override
-		protected String doInBackground(Void... parm) {
-			// TODO Auto-generated method stub
-
-			
-			comtypeString=comtype.getText().toString();
-			faultdescString=faultdesc.getText().toString();
-			booktimeString=booktime.getText().toString();
-			
+		protected String doInBackground(Void... parm) {			
 			String url=new String("http://www.peizheng.cn/mobile/index.php?interfaceid=0204&uid="+
 			uidString+"&uname="+unameString+"&comtype="+comtypeString+"&faultdesc="+faultdescString+
 			"&booktime="+booktimeString+"&phone="+phoneString+"&dorm="+dormString+"&email="+emailString+
-			"&area="+areaString+"&cname=dfly+&cpwd=123456");
-			System.out.println(url);
+			"&area="+areaString+"&cname=dfly&cpwd=123456");
+			
 			jsonString=HttpTools.getJsonString(url);
 			String status=JsonTools.getStatus(jsonString);
+			
 			return status;
 		}
 		

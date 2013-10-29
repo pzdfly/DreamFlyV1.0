@@ -17,7 +17,7 @@
             android:layout_centerInParent="true"
             android:text="@string/act_regist"
             android:textColor="#ffffff"
-            android:textSize="20dip"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/user"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/et_zhuceyonghu"
@@ -58,20 +58,27 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dip" >
-
+				
+                <LinearLayout 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    ></LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/password"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/et_zhucemima"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/yuanjiao"
+                    android:background="@drawable/yuanjiao"                   
                     android:hint="@string/hint_password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:maxLength="16" />
+
             </TableRow>
 
             <TableRow
@@ -83,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/realname"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/et_zhucerealname"
@@ -101,15 +108,55 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:text="@string/sex"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
-                <EditText
-                    android:id="@+id/et_zhucesex"
+                <RadioGroup
+                    android:id="@+id/zhucesex"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/yuanjiao"
-                    android:hint="@string/hint_sex" />
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    >
+                    <RadioButton 
+                        android:id="@+id/male"
+                        android:layout_width="wrap_content"
+                    	android:layout_height="wrap_content"
+                    	android:textColor="#000000"
+                    	android:button="@drawable/sex_selector"
+                    	android:focusable="true"
+                        android:text="@string/male"
+                        />
+                    <RadioButton 
+                        android:id="@+id/female"
+                        android:layout_width="wrap_content"
+                    	android:layout_height="wrap_content"
+                    	android:textColor="#000000"
+                    	android:button="@drawable/sex_selector"
+                        android:text="@string/female"
+                        />
+                </RadioGroup>
+            </TableRow>
+
+           <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/area"
+                    android:textSize="15sp" />
+
+
+                <Spinner 
+	                   	 android:id="@+id/sp_zhucearea"
+	                     android:layout_width="wrap_content"
+	                     android:layout_height="40dp"
+						 android:prompt="@string/area"
+	                     />
             </TableRow>
 
             <TableRow
@@ -121,34 +168,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dorm"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
-                <EditText
-                    android:id="@+id/et_zhucesushe"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/yuanjiao"
-                    android:hint="@string/hint_dorm"
-                    android:inputType="textVisiblePassword" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dip" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/area"
-                    android:textSize="15dip" />
-
-                <EditText
-                    android:id="@+id/et_zhucearea"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/yuanjiao"
-                    android:hint="@string/hint_area" />
+                 <LinearLayout 
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal"
+                     >
+                     <Spinner 
+	                   	 android:id="@+id/sp_zhucearea_number"
+	                     android:layout_width="80dp"
+	                     android:layout_height="40dp"
+						 android:prompt="@string/hint_dorm_title"
+	                     />
+                     <TextView 
+                         android:layout_width="wrap_content"
+                         android:layout_height="35dp"
+                         android:textSize="15sp"
+                         android:textColor="#000000"
+                         android:layout_marginRight="4dp"
+                         android:text="@string/hint_middle"
+                         />
+                     <EditText 
+                         android:id="@+id/et_zhucedrom"
+                         android:layout_width="fill_parent"
+                         android:layout_height="35dp"
+                         android:hint="@string/hint_dorm"
+                         android:maxLength="4"
+                         android:background="@drawable/yuanjiao"
+                         />
+                 </LinearLayout>
+                
             </TableRow>
 
             <TableRow
@@ -160,7 +210,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/et_zhucedianhua"
@@ -168,6 +218,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/yuanjiao"
                     android:hint="@string/hint_phone"
+                    android:maxLength="11"
                     android:inputType="phone" />
             </TableRow>
 
@@ -180,7 +231,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/et_zhuceemail"
@@ -201,6 +252,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dip"
+                    android:contentDescription="@string/img_description"
                     android:background="@drawable/pc_dengluditiao" />
 
                 <Button
@@ -210,7 +262,7 @@
                     android:background="@drawable/selector_btn"
                     android:gravity="center"
                     android:text="@string/btn_regist"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </TableLayout>
     </ScrollView>

@@ -31,5 +31,11 @@ public class Notice{
 	public void setTime(String time) {
 		this.time = time;
 	}
+	
+	@Override
+	public String toString() {
+		return "Notice [nid=" + nid + ", title=" + title + ", notice=" + notice
+				+ ", time=" + time + "]";
+	}
 
 }

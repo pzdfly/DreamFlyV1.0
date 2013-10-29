@@ -26,14 +26,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/user"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_baoxiu_user"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -45,14 +45,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/area"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_baoxiu_area"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -64,14 +64,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dorm"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_baoxiu_dorm"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -83,14 +83,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_baoxiu_phone"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -102,33 +102,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_baoxiu_email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
-            <TableRow
+           <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dip" >
+                android:layout_marginBottom="4dip"
+                android:orientation="horizontal" >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/comtype"
-                    android:textSize="20dip" />
+                    android:layout_weight="1"
+                    android:textSize="20sp" />
 
-                <EditText
-                    android:id="@+id/et_baoxiu_comtype"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/yuanjiao"
-                    android:hint="@string/hint_comtype" />
+                 <Spinner 
+	                android:id="@+id/sp_baoxiu_comtype"
+	                android:layout_width="wrap_content"
+	                android:layout_height="40dp"
+	                android:layout_marginTop="0dp"
+	                android:layout_weight="300"
+					android:prompt="@string/comtype_title"
+	                />         
             </TableRow>
 
             <TableRow
@@ -140,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/faultdesc"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/et_baoxiu_faultdesc"
@@ -159,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/booktime"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/et_baoxiu_booktime"
