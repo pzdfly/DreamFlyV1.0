@@ -122,17 +122,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/comtype"
-                    android:layout_weight="1"
                     android:textSize="20sp" />
-
-                 <Spinner 
+				<LinearLayout 
+				    android:layout_width="fill_parent"
+                	android:layout_height="wrap_content"
+                 	android:orientation="horizontal"
+				    >
+				    <Spinner 
 	                android:id="@+id/sp_baoxiu_comtype"
 	                android:layout_width="wrap_content"
 	                android:layout_height="40dp"
 	                android:layout_marginTop="0dp"
-	                android:layout_weight="300"
 					android:prompt="@string/comtype_title"
-	                />         
+	                />
+				</LinearLayout>
+                          
             </TableRow>
 
             <TableRow

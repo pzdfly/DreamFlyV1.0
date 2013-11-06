@@ -31,6 +31,9 @@
     <string name="phone">电话：</string>
     <string name="pcnumber">pc号码:</string>
     <string name="reinfo">修改个人资料</string>
+    <string name="submit_info">提交修改</string>
+    <string name="goback">返回</string>
+    <string name="space">&#160; &#160; &#160; &#160; </string>
     <string name="comtype">电脑类型:</string>
     <string name="faultdesc">故障描述:</string>
     <string name="booktime">预约时间:</string>

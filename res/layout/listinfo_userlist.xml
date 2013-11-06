@@ -17,7 +17,7 @@
             android:layout_centerInParent="true"
             android:text="@string/listinfo"
             android:textColor="#ffffff"
-            android:textSize="20dip"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/listid"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_listid"
@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/type"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_type"
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/user"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_user"
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/area"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_area"
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dorm"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_dorm"
@@ -128,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_phone"
@@ -145,7 +145,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/comtype"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_comtype"
@@ -162,7 +162,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/booktime"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_booktime"
@@ -179,7 +179,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/time"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_time"
@@ -196,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/pcnumber"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_pcnumber"
@@ -213,7 +213,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/state"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_state"
@@ -230,7 +230,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reviewlevel"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_reviewlevel"
@@ -247,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/remark"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_remark"
@@ -275,7 +275,7 @@
                     android:background="@drawable/selector_btn"
                     android:gravity="center"
                     android:text="@string/takeit"
-                    android:textSize="15dip" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </TableLayout>
     </ScrollView>

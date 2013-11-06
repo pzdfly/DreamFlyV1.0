@@ -495,7 +495,7 @@ public class PicturesList extends AsyncTask<Void, Void, List<NewsPictures>> {
 			
 			scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 			// 每两秒钟切换一次图片显示
-			scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 4, TimeUnit.SECONDS);
+			scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 0, 4, TimeUnit.SECONDS);
 			
 		} catch (Exception e) {
 			// TODO: handle exception

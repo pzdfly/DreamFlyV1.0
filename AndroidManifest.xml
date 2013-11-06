@@ -16,56 +16,86 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar">
+        android:theme="@android:style/Theme.NoTitleBar"
+        >
         <activity
             android:name="com.example.dreamfly.WellcomeActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".NewsContent"></activity>
-        <activity android:name=".NewsPage"></activity>
-        <activity android:name=".AboutContent"></activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".NewsContent"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".NewsPage"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".AboutContent"
+            android:screenOrientation="portrait"
+            ></activity>
         <activity
-            android:name="hmj.dfly.pc.DreamFly_pcActivity">
-        </activity>
+            android:name="hmj.dfly.pc.DreamFly_pcActivity"
+            android:screenOrientation="portrait"
+            ></activity>
         <activity 
-            android:name="hmj.dfly.pc.DreamFly_pczhuce"></activity>
+            android:name="hmj.dfly.pc.DreamFly_pczhuce"
+            android:screenOrientation="portrait"
+            ></activity>
         <activity android:name="hmj.dfly.user.baoxiu"
+            android:screenOrientation="portrait"
             ></activity>
         <activity android:name="hmj.dfly.pc.user_tab"
+            android:screenOrientation="portrait"
         	></activity>
         <activity android:name="hmj.dfly.user.pc_ziliao"
+            android:screenOrientation="portrait"
             ></activity>
         <activity android:name="hmj.dfly.user.pc_baoxiu"
+            android:screenOrientation="portrait"
             ></activity>
         <activity android:name="hmj.dfly.user.pc_baoxiudan"
+            android:screenOrientation="portrait"
             ></activity>
         <activity android:name="hmj.dfly.user.editInfo"
+            android:screenOrientation="portrait"
             ></activity>
 		<activity android:name="hmj.dfly.user.cancelList"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.user.comment"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.pcer.webtList"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.pcer.acceptList"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.pcer.myList"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.pcer.listinfo_pcer"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.pcer.teleList"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.pcer.giveupList"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.pcer.finishList"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		<activity android:name="hmj.dfly.user.listinfo_user"
+		    android:screenOrientation="portrait"
 		    ></activity>
 		
 		<meta-data android:value="526b2c7556240b8ed1088810" android:name="UMENG_APPKEY" />

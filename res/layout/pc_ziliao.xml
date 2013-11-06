@@ -28,14 +28,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/user"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -47,14 +47,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/realname"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_realname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -66,14 +66,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sex"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -85,14 +85,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/area"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -104,14 +104,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dorm"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_dorm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -123,14 +123,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow
@@ -142,33 +142,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
-            <TableRow
+            <TableRow 
+                android:id="@+id/tr_pcnumber"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_marginBottom="4dip" >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/pcnumber"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_pcnumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20dip" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <LinearLayout
