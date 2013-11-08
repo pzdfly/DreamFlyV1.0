@@ -83,7 +83,7 @@ public class pc_baoxiudan extends Activity {
 			}
 			SimpleAdapter listItemAdapter=new SimpleAdapter(pc_baoxiudan.this, listItem, R.layout.baoxiudan_list_item,
 					new String[]{"listid","computertype","booktime","submittime","state"},
-					new int[]{R.id.tv_pc_danhao,R.id.tv_pc_computertype,R.id.tv_pc_booktime,R.id.tv_pc_submittime,R.id.tv_pc_zhuangtai});
+					new int[]{R.id.tv_pc_danhao, R.id.tv_pc_computertype,R.id.tv_pc_booktime,R.id.tv_pc_submittime,R.id.tv_pc_zhuangtai});
 			listView.setAdapter(listItemAdapter);
 			
 			listView.setOnItemClickListener(new OnItemClickListener() {
@@ -95,8 +95,6 @@ public class pc_baoxiudan extends Activity {
 					startActivity(intent);
 				}
 			});
-			
-			//super.onPostExecute(result);
 		}
     	
     }

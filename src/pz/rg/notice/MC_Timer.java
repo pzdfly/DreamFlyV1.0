@@ -1,6 +1,8 @@
 package pz.rg.notice;
 
 
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.util.List;
 
 import com.example.dreamfly.R;
@@ -15,18 +17,28 @@ import android.widget.TextView;
 public class MC_Timer extends Handler {
 	private static 	int 			TIMERID = 0;			//静态变量，保证ID唯一。当ID超过整形最大值时，应该把它恢复为0 
 	private final 	int 			m_Interval;
-	private final  	List<Notice>	m_List;
+	private   	List<Notice>	m_List = null;
 	private final   TextView		m_Title;
 	private final	TextView		m_Content;
 	private final	TextView		m_Time;
 	private int		m_Count			= 0;
 
-	public MC_Timer(int vInterval, List<Notice> vList, Activity vActivity){
+	@SuppressWarnings("unchecked")
+	public MC_Timer(int vInterval, Activity vActivity){
 		m_Interval 	= vInterval;
-		m_List 		= vList;
 		m_Title		= (TextView)vActivity.findViewById(R.id.tv_notice_title);
 		m_Content	= (TextView)vActivity.findViewById(R.id.tv_notice_content);
 		m_Time		= (TextView)vActivity.findViewById(R.id.tv_notice_time);
+		
+		try {
+			InputStream 		tFileStream 	= vActivity.openFileInput("Notices");
+			ObjectInputStream	tObjectStream	= new ObjectInputStream(tFileStream);
+			m_List								= (List<Notice>) tObjectStream.readObject();
+			tFileStream.close();
+			tObjectStream.close();
+		} catch (Exception e) {
+			System.out.println("MC_Timer Conusrtor Error!");
+		}	
 		
 		TIMERID++;
 	}

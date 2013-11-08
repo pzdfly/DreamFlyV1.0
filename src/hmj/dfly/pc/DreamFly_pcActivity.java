@@ -8,7 +8,6 @@ import com.umeng.analytics.MobclickAgent;
 
 
 import pz.rg.domain.Login;
-import pz.rg.domain.Notice;
 
 import pz.rg.http.HttpTools;
 import pz.rg.json.tool.JsonTools;
@@ -54,8 +53,7 @@ public class DreamFly_pcActivity extends Activity {
     		btn_pcdenglu=(Button)findViewById(R.id.btn_pcdenglu);
     		btn_pcdenglu.setOnClickListener(l_pcdenglu);  
         
-    		getNotice getnotice=new getNotice();
-    		getnotice.execute();
+    		RunNotices();
     	}
     	else {	
 			Intent intent=new Intent();
@@ -150,34 +148,15 @@ public class DreamFly_pcActivity extends Activity {
 					finish();
 				}
 			}
-		}
-			
-
-			
+		}	
 	}
 
-	public class getNotice extends AsyncTask<Void, Void, List<Notice>>{
-		private String 	jsonString;
-		
-		@Override
-		protected List<Notice> doInBackground(Void... params) {
-			
-			String url				= new String("http://www.peizheng.cn/mobile/index.php?interfaceid=0213&topnum=3&cname=dfly&cpwd=123456");
-			jsonString				= HttpTools.getJsonString(url);
-			List<Notice> noticeList	= JsonTools.getNotice(jsonString);
-			
-			return noticeList;
-		}
-
-		@Override
-		protected void onPostExecute(List<Notice> list) {
-			MC_Timer tTimer = new MC_Timer(4000, list, DreamFly_pcActivity.this);
-			tTimer.startTimer();
-			
-			super.onPostExecute(list);
-		}
+	//加载通知跳动
+	private void RunNotices() {
+		MC_Timer tTimer = new MC_Timer(4000, DreamFly_pcActivity.this);
+		tTimer.startTimer();
 	}
-
+	
 	@Override
 	protected void onPause() {
 		super.onPause();

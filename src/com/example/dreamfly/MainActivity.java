@@ -1,5 +1,7 @@
 package com.example.dreamfly;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +14,7 @@ import com.umeng.analytics.MobclickAgent;
 
 import pz.rg.domain.NewsHead;
 import pz.rg.domain.NewsPictures;
+import pz.rg.domain.Notice;
 import pz.rg.downloadimage.DownLoadImage_top;
 import pz.rg.exit.ExitApplication;
 import pz.rg.http.HttpTools;
@@ -160,12 +163,9 @@ public class MainActivity extends Activity {
 		});		
 		//列表
 		
-		
 		PicturesList pictures=new PicturesList();
 		pictures.execute();
-			
-		
-		
+
 		listView=(PullToRefreshListView)findViewById(R.id.newslist);
 		listView.setCacheColorHint(Color.TRANSPARENT);
 		listView.setBackgroundResource(R.drawable.listviewbackground);
@@ -181,7 +181,6 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
-				// TODO Auto-generated method stub
 				String newsid=list.get(position-2).get("newsid").toString();
 				String databaseid=list.get(position-2).get("databaseid").toString();
 				Intent intent=new Intent(MainActivity.this,NewsContent.class);
@@ -196,7 +195,6 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onRefresh() {
-				// TODO Auto-generated method stub
                 list.clear();
                 page=2;
 				HomeListviewRefresh homelistviewRefresh=new HomeListviewRefresh();
@@ -215,7 +213,6 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				loadmoreButton.setVisibility(View.INVISIBLE);
 				loadmoreprogressBar.setVisibility(View.VISIBLE);
 				loadmoretextView.setVisibility(View.VISIBLE);
@@ -242,10 +239,33 @@ public class MainActivity extends Activity {
 		        }
 		        ).Buile();
 		
-		
-		
+		//开启获取通知的线程
+		getNotice tNotice = new getNotice();
+		tNotice.execute();
 	}	
 		
+	public class getNotice extends AsyncTask<Void, Void, List<Notice>>{
+		
+		@Override
+		protected List<Notice> doInBackground(Void... params) {
+			
+			String url				= new String("http://www.peizheng.cn/mobile/index.php?interfaceid=0213&topnum=3&cname=dfly&cpwd=123456");
+			String jsonString		= HttpTools.getJsonString(url);
+			List<Notice> noticeList	= JsonTools.getNotice(jsonString);	
+			
+			//序列化PC通知，写到文件中
+			try {
+				FileOutputStream 	tFileStream 	= MainActivity.this.openFileOutput("Notices", MODE_PRIVATE);
+				ObjectOutputStream 	tObjectStream	= new ObjectOutputStream(tFileStream);
+				tObjectStream.writeObject(noticeList);
+				tObjectStream.close();
+				tFileStream.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return noticeList;
+		}
+	}
 		
 	private class ScrollTask implements Runnable {
 
@@ -354,7 +374,6 @@ public class HomeListviewRefresh extends AsyncTask<Void, Void, List<NewsHead>> {
 		
 		@Override
 		protected void onPreExecute() {
-		// TODO Auto-generated method stub
 			homepage_loading_progressBar.setVisibility(View.VISIBLE);
 			homepage_refreshButton.setVisibility(View.INVISIBLE);
 			homepage_set_netButton.setVisibility(View.INVISIBLE);
@@ -364,7 +383,6 @@ public class HomeListviewRefresh extends AsyncTask<Void, Void, List<NewsHead>> {
 
 		@Override
 		protected List<NewsHead> doInBackground(Void... parm) {
-			// TODO Auto-generated method stub
 		    StringBuffer pathBuffer=new StringBuffer("http://www.peizheng.cn/mobile/index.php?interfaceid=0101&page=1&limit=10"+"&cname=dfly&cpwd=123456");
 			jsonString = HttpTools.getJsonString(pathBuffer.toString());
 			List<NewsHead> newsHeads=new ArrayList<NewsHead>();
@@ -376,7 +394,6 @@ public class HomeListviewRefresh extends AsyncTask<Void, Void, List<NewsHead>> {
 
 		@Override
 		protected void onPostExecute(List<NewsHead> result) {
-			// TODO Auto-generated method stub
 			homepage_loading_progressBar.setVisibility(View.INVISIBLE);
 			if (result.toString().equals("[]")) {
 				
@@ -448,7 +465,6 @@ public class PicturesList extends AsyncTask<Void, Void, List<NewsPictures>> {
 
 	@Override
 	protected List<NewsPictures> doInBackground(Void... parm) {
-		// TODO Auto-generated method stub
 	    StringBuffer pathBuffer=new StringBuffer("http://www.peizheng.cn/mobile/index.php?interfaceid=0102&page=1&limit=10&catid=252&cname=dfly&cpwd=123456");
 		jsonString = HttpTools.getJsonString(pathBuffer.toString());
 		List<NewsPictures> newsPictures=new ArrayList<NewsPictures>();
@@ -544,14 +560,12 @@ public class PicturesList extends AsyncTask<Void, Void, List<NewsPictures>> {
 				 bottom_menu.showAtLocation(findViewById(R.id.mainactivity), Gravity.BOTTOM, 0, 0);
 		    } 
 		     if (keyCode==KeyEvent.KEYCODE_BACK ) {
-		    	 
 		    	 screenWidth = MainActivity.this.getWindowManager().getDefaultDisplay().getWidth();   
 		         screenHeight = MainActivity.this.getWindowManager().getDefaultDisplay().getHeight();   
 		    	 View dialog_view = getLayoutInflater().inflate(R.layout.mydialog, null,false);
 		    	 dialogPopupWindow= new PopupWindow(dialog_view, screenWidth, screenHeight/2, true);
 				 MyDialog.initPopuptWindow(dialogPopupWindow, dialog_view,MainActivity.this);
 	             dialogPopupWindow.showAtLocation(findViewById(R.id.mainactivity), Gravity.CENTER, 0, screenHeight/20);
-				
 			}
 		    return super.onKeyDown(keyCode, event);
 		}
